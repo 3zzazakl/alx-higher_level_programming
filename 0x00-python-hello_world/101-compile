@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 -m py_compile "$PYFILE" && mv "${PYFILE}c" "${PYFILE%.py}.pyc"
+python3 -m compileall $PYFILE -b
