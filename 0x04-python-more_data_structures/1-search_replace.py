@@ -3,8 +3,6 @@
 def search_replace(my_list, search, replace):
     if (len(my_list) == 0):
         return (None)
-    if search is None or replace is None:
-        return (None)
     new_list = my_list[:]
     for i in range(len(new_list)):
         if (new_list[i] == search):
