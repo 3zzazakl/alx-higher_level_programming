@@ -6,3 +6,10 @@ new_list = search_replace(my_list, 2, 89)
 
 print(new_list)
 print(my_list)
+
+
+my_list = []
+new_list = search_replace(my_list, 2, 89)
+
+print(new_list)
+print(my_list)
