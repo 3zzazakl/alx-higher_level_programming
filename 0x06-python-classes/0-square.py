@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 class Square:
-    '''
-        writing a square class
-    '''
+    """Simple empty Square class
+    """
     pass
