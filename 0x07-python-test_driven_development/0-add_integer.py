@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 """
-    add_integer_to_: this is function to add integer
+This is module is used to add integers.
+
+add_integer_to_: this is function to add integer
 """
 
 
 def add_integer(a, b=98):
     """
-        adding two numbers
+    adding two numbers
     :param a: first number
     :param b: second number
     :return: summation of the two numbers
