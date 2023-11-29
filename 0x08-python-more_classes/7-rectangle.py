@@ -62,7 +62,8 @@ class Rectangle:
         """print the rectangle"""
         if self.__width == 0 or self.__height == 0:
             return ""
-        disp = '\n'.join([str(self.print_symbol)  * self.__width for i in range(self.__height)])
+        disp = '\n'.join([str(self.print_symbol) *
+                          self.__width for i in range(self.__height)])
         return disp
 
     def __repr__(self):
