@@ -1,5 +1,10 @@
 #include <Python.h>
 
+/**
+ * print_python_string - print info about string
+ * @p: string obj.
+ */
+
 void print_python_string(PyObject *p)
 {
 long int length;
@@ -8,7 +13,7 @@ fflush(stdout);
 
 print("[.] string object info\n");
 
-if (strcmp(p->ob_type->tp_name), "str") != 0)
+if (strcmp(p->ob_type->tp_name, "str") != 0)
 {
 printf("  [ERROR] Invalid String Object");
 return;
