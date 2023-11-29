@@ -10,9 +10,9 @@ def say_my_name(first_name, last_name=""):
     second -- second argument
     Return: return_description
     """
-    if not isinstance(first_name, str) or not isinstance(last_name, str):
+    if not isinstance(first_name, str):
         raise TypeError("first_name must be a string")
-    if last_name:
-        print("My name is {} {}".format(first_name, last_name))
+    elif not isinstance(last_name, str):
+        raise TypeError("last_name must be a string")
     else:
-        print("My name is {}".format(first_name))
+        print("My name is {} {}".format(first_name.strip(), last_name.strip()))
