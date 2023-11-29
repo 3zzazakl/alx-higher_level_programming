@@ -11,7 +11,7 @@ void print_python_string(PyObject *p)
 
 	fflush(stdout);
 
-	print("[.] string object info\n");
+	printf("[.] string object info\n");
 
 	if (strcmp(p->ob_type->tp_name, "str") != 0)
 	{
