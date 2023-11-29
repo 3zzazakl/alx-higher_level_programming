@@ -16,5 +16,15 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    new_matrx = [[round(elem / div, 2) for elem in row] for row in matrix]
-    return new_matrx
+    new_matrix = []
+    for row in matrix:
+        new_row = []
+        for elem in row:
+            if not isinstance(elem, (int, float)):
+                raise TypeError(
+                    "matrix must be a matrix (list of lists)\
+                    of integers/floats")
+            new_row.append(round(elem / div, 2))
+        new_matrix.append(new_row)
+
+    return new_matrix

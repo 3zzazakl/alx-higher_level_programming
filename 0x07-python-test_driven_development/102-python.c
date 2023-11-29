@@ -1,12 +1,13 @@
-#include "Python.h"
+#include <Python.h>
 
 void print_python_string(PyObject *p)
 {
-long int lenght;
+long int length;
 
 fflush(stdout);
 
 print("[.] string object info\n");
+
 if (strcmp(p->ob_type->tp_name), "str") != 0)
 {
 printf("  [ERROR] Invalid String Object");
