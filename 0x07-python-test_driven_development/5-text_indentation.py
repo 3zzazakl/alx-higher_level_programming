@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """print text with two new lines."""
 
+
 def text_indentation(text):
     """
     print text with two new lines
