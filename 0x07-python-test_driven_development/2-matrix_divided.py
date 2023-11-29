@@ -5,6 +5,22 @@ This is module is used to
 
 
 def matrix_divided(matrix, div):
+    """this function used to divide integers
+
+    Args:
+        matrix (int): list of lists
+        div (int): number to divided by
+
+    Raises:
+        TypeError: matrix must be a matrix (list of lists) of integers
+        TypeError: Each row of the matrix must have the same size
+        TypeError: _description_
+        ZeroDivisionError: division by zero
+        TypeError: div must be a number
+
+    Returns:
+        _type_: new list with divided numbers.
+    """
     err2 = "matrix must be a matrix (list of lists) of integers/floats"
     if not isinstance(matrix, list) or not all(
          isinstance(i, list) for i in matrix):
