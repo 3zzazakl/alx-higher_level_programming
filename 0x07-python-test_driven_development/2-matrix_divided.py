@@ -5,6 +5,7 @@ This is module is used to
 
 
 def matrix_divided(matrix, div):
+    err2 = "matrix must be a matrix (list of lists) of integers/floats"
     if not isinstance(matrix, list) or not all(
          isinstance(i, list) for i in matrix):
         raise TypeError(
@@ -21,9 +22,7 @@ def matrix_divided(matrix, div):
         new_row = []
         for elem in row:
             if not isinstance(elem, (int, float)):
-                raise TypeError(
-                    "matrix must be a matrix (list of lists)\
-                    of integers/floats")
+                raise TypeError(err2)
             new_row.append(round(elem / div, 2))
         new_matrix.append(new_row)
 
