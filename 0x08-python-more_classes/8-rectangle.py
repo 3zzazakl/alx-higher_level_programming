@@ -4,9 +4,6 @@ setting a rectangle class for task.
 """
 
 
-from curses.textpad import rectangle
-
-
 class Rectangle:
     """
     rectangle class
