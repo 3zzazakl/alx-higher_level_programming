@@ -33,7 +33,7 @@ class Rectangle(Base):
         Returns:
             _type_: _description_
         """
-        return self.__Width
+        return self.__width
 
     @width.setter
     def width(self, value):
@@ -113,3 +113,11 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError('y must be > 0')
         self.__y = value
+
+    def area(self):
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
+        return self.width * self.height
