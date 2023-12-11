@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """_summary_
 """
+from ast import arg
 from models.rectangle import Rectangle
 
 
@@ -50,3 +51,12 @@ class Square(Rectangle):
         """
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        lst = (self.id, self.size, self.x, self.y)
+        if args:
+            self.id, self.size, self.x, self.y = \
+                args + lst[len(args):len(lst)]
+        elif kwargs:
+            for (key, value) in kwargs.items():
+                setattr(self, key, value)
