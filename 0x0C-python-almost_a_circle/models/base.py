@@ -9,15 +9,12 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """"summary_line
-
-        Keyword arguments:
-        argument -- description
-        Return: return_description
+        """_summary_
         """
+
         if id is not None:
             self.id = id
 
         else:
-            type(self).__nb_objects += 1
-            self.id = type(self).__nb_objects
+            Base.__nb_objects += 1
+            self.id = Base.__nb_objects
