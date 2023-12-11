@@ -64,3 +64,21 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+    
+    def create(cls, **dictionary):
+        """_summary_
+
+        Raises:
+            ValueError: _description_
+
+        Returns:
+            _type_: _description_
+        """
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy = cls(1)
+        else:
+            raise ValueError("Unsupported class")
+        dummy.update(**dictionary)
+        return dummy
