@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """_summary_
 """
-from fileinput import filename
 import json
 
 from models.rectangle import Rectangle
