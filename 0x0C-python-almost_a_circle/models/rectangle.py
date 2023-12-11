@@ -125,14 +125,10 @@ class Rectangle(Base):
     def display(self):
         """_summary_
         """
-        for y in range(self.y):
+        for a in range(self.y):
             print()
-        for h in range(self.height):
-            for x in range(self.x):
-                print(' ', end='')
-            for row in range(self.width):
-                print("#" * self.width)
-            print()
+        for a in range(self.height):
+            print(" " * self.x + "#" * self.width)
 
     def __str__(self):
         """_summary_
