@@ -28,8 +28,7 @@ class Square(Rectangle):
             _type_: _description_
         """
         return "[Square] ({}) {}/{} - {}".format(
-            self.id, self.x, self.y, self.width
-        )
+            self.id, self.x, self.y, self.width)
 
     @property
     def size(self):
@@ -52,6 +51,8 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
+        """_summary_
+        """
         lst = (self.id, self.size, self.x, self.y)
         if args:
             self.id, self.size, self.x, self.y = \
