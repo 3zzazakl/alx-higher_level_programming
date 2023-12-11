@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """_summary_
 """
+from fileinput import filename
 import json
 
 
@@ -64,7 +65,8 @@ class Base:
             return []
         else:
             return json.loads(json_string)
-    
+
+    @classmethod
     def create(cls, **dictionary):
         """_summary_
 
@@ -82,3 +84,19 @@ class Base:
             raise ValueError("Unsupported class")
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, mode="r", encoding="utf-8") as file:
+                json_data = file.read()
+                list_dicts = cls.from_json_string(json_data)
+                return [cls.create(**d) for d in list_dicts]
+        except FileNotFoundError:
+            return []
