@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """_summary_
 """
-from ast import arg
 from models.rectangle import Rectangle
 
 
