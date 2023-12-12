@@ -2,8 +2,7 @@
 """_summary_
 """
 import json
-
-from models.rectangle import Rectangle
+from .rectangle import Rectangle
 
 
 class Base:
