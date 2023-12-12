@@ -108,26 +108,18 @@ class Base:
 
         Args:
             list_objs (_type_): _description_
-
-        Raises:
-            TypeError: _description_
         """
-
-        if (not isinstance(list_objs, list) or
-                any(not isinstance(x, cls) for x in list_objs)):
-            raise TypeError("list_objs must be a list of instances")
-
-        filename = cls.__name__ + ".csv"
-        with open(filename, 'w') as f:
-            if list_objs is not None:
-                list_objs = [x.to_dictionary() for x in list_objs]
-                if cls.__name__ == 'Rectangle':
-                    fields = ['id', 'width', 'height', 'x', 'y']
-                elif cls.__name__ == 'Square':
-                    fields = ['id', 'size', 'x', 'y']
-                writer = csv.DictWriter(f, fieldnames=fields)
-                writer.writeheader()
-                writer.writerows(list_objs)
+        with open(cls.__name__ + ".csv", "w", encoding='utf-8') as f:
+            list_dicts = list()
+            for item in list_objs:
+                list_dicts.append(item.to_dictionary())
+            if cls.__name__ == "Rectangle":
+                fieldnames = ["id", "width", "height", "x", "y"]
+            else:
+                fieldnames = ["id", "size", "x", "y"]
+            writer = csv.DictWriter(f, fieldnames)
+            writer.writeheader()
+            writer.writerows(list_dicts)
 
     @classmethod
     def load_from_file_csv(cls):
@@ -136,42 +128,47 @@ class Base:
         Returns:
             _type_: _description_
         """
+        ans = []
+        with open(cls.__name__ + ".csv", "r") as f:
+            reader = csv.DictReader(f)
+            for line in reader:
+                kwargs = dict(line)
+                for key, val in kwargs.items():
+                    kwargs[key] = int(val)
+                ans.append(cls.create(**kwargs))
+            return ans
 
-        filename = cls.__name__ + ".csv"
-        lst = []
-        if os.path.exists(filename):
-            with open(filename, 'r') as f:
-                reader = csv.reader(f, delimiter=',')
-                if cls.__name__ == 'Rectangle':
-                    fields = ['id', 'width', 'height', 'x', 'y']
-                elif cls.__name__ == 'Square':
-                    fields = ['id', 'size', 'x', 'y']
-                for x, row in enumerate(reader):
-                    if x > 0:
-                        i = cls(1, 1)
-                        for j, e in enumerate(row):
-                            if e:
-                                setattr(i, fields[j], int(e))
-                        lst.append(i)
-        return lst
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """_summary_
 
-    """ @classmethod
-    def draw(cls, list_rectangles, list_squares):
-        window = turtle.Screen()
-        pen = turtle.Pen()
-        figures = list_rectangles + list_squares
-
-        for fig in figures:
-            pen.up()
-            pen.goto(fig.x, fig.y)
-            pen.down()
-            pen.forward(fig.width)
-            pen.right(90)
-            pen.forward(fig.height)
-            pen.right(90)
-            pen.forward(fig.width)
-            pen.right(90)
-            pen.forward(fig.height)
-            pen.right(90)
-
-        window.exitonclick() """
+        Args:
+            list_rectangles (_type_): _description_
+            list_squares (_type_): _description_
+        """
+        my_t = turtle.Turtle()
+        for rect in list_rectangles:
+            my_t.setheading(0)
+            my_t.penup()
+            my_t.goto(rect.x, rect.y)
+            my_t.pendown()
+            my_t.forward(rect.width)
+            my_t.right(90)
+            my_t.forward(rect.height)
+            my_t.right(90)
+            my_t.forward(rect.width)
+            my_t.right(90)
+            my_t.forward(rect.height)
+        for squ in list_squares:
+            my_t.setheading(0)
+            my_t.penup()
+            my_t.goto(squ.x, squ.y)
+            my_t.pendown()
+            my_t.forward(squ.size)
+            my_t.right(90)
+            my_t.forward(squ.size)
+            my_t.right(90)
+            my_t.forward(squ.size)
+            my_t.right(90)
+            my_t.forward(squ.size)
+        input()
