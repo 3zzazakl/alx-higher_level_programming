@@ -102,7 +102,7 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except FileNotFoundError:
             return []
-    
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """_summary_
@@ -114,9 +114,8 @@ class Base:
             TypeError: _description_
         """
 
-        if (type(list_objs) != list and
-           list_objs is not None or
-           not all(isinstance(x, cls) for x in list_objs)):
+        if (not isinstance(list_objs, list) or
+                any(not isinstance(x, cls) for x in list_objs)):
             raise TypeError("list_objs must be a list of instances")
 
         filename = cls.__name__ + ".csv"
