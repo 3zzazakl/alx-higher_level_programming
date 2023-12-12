@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """_summary_
 """
-import json
-from .rectangle import Rectangle
+from models.rectangle import Rectangle
 
 
 class Base:
@@ -98,57 +97,5 @@ class Base:
                 json_data = file.read()
                 list_dicts = cls.from_json_string(json_data)
                 return [cls.create(**d) for d in list_dicts]
-        except FileNotFoundError:
-            return []
-
-    @classmethod
-    def save_to_file_csv(cls, list_objs):
-        """_summary_
-
-        Args:
-            list_objs (_type_): _description_
-        """
-        filename = cls.__name__ + ".csv"
-        with open(filename, mode="w", encoding="utf-8") as file:
-            if list_objs is None:
-                file.write("")
-            else:
-                for obj in list_objs:
-                    if cls.__name__ == "Rectangle":
-                        csv_line = "{},{},{},{},{}\n".format(
-                            obj.id, obj.width, obj.height, obj.x, obj.y)
-                    elif cls.__name__ == "Square":
-                        csv_line = "{},{},{},{}\n".format(
-                            obj.id, obj.size, obj.x, obj.y)
-                    file.write(csv_line)
-
-    @classmethod
-    def load_from_file_csv(cls):
-        """_summary_
-
-        Returns:
-            _type_: _description_
-        """
-        filename = cls.__name__ + ".csv"
-        try:
-            with open(filename, mode="r", encoding="utf-8") as file:
-                list_lines = file.readlines()
-                list_dicts = []
-                for line in list_lines:
-                    list_values = line.rstrip('\n').split(',')
-                    dict_values = {
-                        "id": int(list_values[0]),
-                        "width": int(list_values[1]),
-                        "height": int(list_values[2]),
-                        "x": int(list_values[3]),
-                        "y": int(list_values[4])
-                    } if cls.__name__ == "Rectangle" else {
-                        "id": int(list_values[0]),
-                        "size": int(list_values[1]),
-                        "x": int(list_values[2]),
-                        "y": int(list_values[3])
-                    }
-                    list_dicts.append(dict_values)
-                    return [cls.create(**d) for d in list_dicts]
         except FileNotFoundError:
             return []
