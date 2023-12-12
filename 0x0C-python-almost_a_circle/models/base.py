@@ -3,7 +3,6 @@
 """
 import json
 import csv
-import turtle
 
 
 class Base:
@@ -138,11 +137,8 @@ class Base:
                 ans.append(cls.create(**kwargs))
             return ans
 
-    @staticmethod
+    """ @staticmethod
     def draw(list_rectangles, list_squares):
-        """
-        Function that draws squares and rectangles.
-        """
         my_t = turtle.Turtle()
         for rect in list_rectangles:
             my_t.setheading(0)
@@ -169,3 +165,4 @@ class Base:
             my_t.right(90)
             my_t.forward(squ.size)
         input()
+ """
