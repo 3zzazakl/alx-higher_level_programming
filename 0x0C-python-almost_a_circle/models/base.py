@@ -3,6 +3,7 @@
 """
 import json
 
+
 class Base:
     """_summary_
     """
