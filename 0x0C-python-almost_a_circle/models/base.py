@@ -4,7 +4,7 @@
 import json
 import os
 import csv
-import turtle
+#import turtle
 
 
 class Base:
@@ -156,14 +156,8 @@ class Base:
                         lst.append(i)
         return lst
 
-    @classmethod
+    """ @classmethod
     def draw(cls, list_rectangles, list_squares):
-        """_summary_
-
-        Args:
-            list_rectangles (_type_): _description_
-            list_squares (_type_): _description_
-        """
         window = turtle.Screen()
         pen = turtle.Pen()
         figures = list_rectangles + list_squares
@@ -181,4 +175,4 @@ class Base:
             pen.forward(fig.height)
             pen.right(90)
 
-        window.exitonclick()
+        window.exitonclick() """
