@@ -4,7 +4,7 @@
     Returns:
         _type_: _description_
 """
-from .base import Base
+from models.base import Base
 
 
 class Rectangle(Base):
