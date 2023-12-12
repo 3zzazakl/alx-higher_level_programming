@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """_summary_
 """
-from models.rectangle import Rectangle
-
+import json
 
 class Base:
     """_summary_
