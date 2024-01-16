@@ -1,7 +1,7 @@
 -- displays the top 3 of cities temperature 
 SELECT city, AVG(value) AS avg_temp
-WHERE temperatures
+FROM temperatures
 WHERE month IN (7, 8)
-GROUP BY city
+GROUP BY city 
 ORDER BY avg_temp DESC
 LIMIT 3;
