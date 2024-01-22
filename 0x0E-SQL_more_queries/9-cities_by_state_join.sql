@@ -9,6 +9,6 @@ SELECT
     states.name
 FROM
     cities
-    INNER JOIN states on cities.state_id = states.id
-ORDER by
+    INNER JOIN states ON cities.state_id = states.id
+ORDER BY
     cities.id;
