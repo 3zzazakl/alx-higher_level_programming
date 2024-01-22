@@ -6,7 +6,7 @@
 SELECT
     cities.id,
     cities.name,
-    states.id
+    states.name
 FROM
     cities
     INNER JOIN states on cities.state_id = states.id
