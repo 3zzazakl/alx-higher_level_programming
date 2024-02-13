@@ -6,9 +6,9 @@ if (isNaN(size) || size < 1) {
   console.log('Missing size');
 } else {
   for (let i = 0; i < size; i++) {
-    const row = '';
+    let row = '';
     for (let ii = 0; ii < size; ii++) {
-      line += 'X';
+      row += 'X';
     }
     console.log(row);
   }
