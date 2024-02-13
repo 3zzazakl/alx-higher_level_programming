@@ -1,7 +1,7 @@
 # 0x13. JavaScript - Objects, Scopes and Closures
 
 ![fxSL](https://github.com/3zzazakl/binary_trees/assets/140283548/e1f7a4af-5fed-4417-bc58-517ce1fa89d7)
-![Javascript-535 png](https://github.com/3zzazakl/alx-higher_level_programming/assets/140283548/a580f996-bf75-433c-b5f1-081a657546e1)
+![Javascript-535 png](https://github.com/3zzazakl/alx-higher_level_programming/assets/140283548/6b0ed3e2-68b7-4bca-b943-3c1a29de9334)
 
 ## Tasks
 ### 0. Rectangle #0
