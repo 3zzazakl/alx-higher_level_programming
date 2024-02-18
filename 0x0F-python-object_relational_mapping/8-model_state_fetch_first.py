@@ -34,5 +34,5 @@ if __name__ == "__main__":
     if f_state:
         print("{}: {}".format(f_state.id, f_state.name))
     else:
-        print("Not found")
+        print("Nothing")
     session.close()
