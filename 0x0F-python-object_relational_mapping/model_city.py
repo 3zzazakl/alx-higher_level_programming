@@ -13,7 +13,7 @@ class City(Base):
     Args:
         Base (_type_): _description_
     """
-    __tablename__ = "states"
+    __tablename__ = "cities"
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False,
                 unique=True)
     name = Column(String(128), nullable=False)
