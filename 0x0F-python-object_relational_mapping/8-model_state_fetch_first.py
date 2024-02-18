@@ -9,23 +9,27 @@ from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
     """sumary_line
-    
+
     Keyword arguments:
     argument -- description
     Return: return_description
     """
-    
-    engine = create_engine('mysql+mysqldb://{}:{}@\
-        localhost:3306/{}'.format(sys.argv[1], sys.argv[2],
-                                  sys.argv[3]))
+
+    user = sys.argv[1]
+    passwd = sys.argv[2]
+    dbs = sys.argv[3]
+
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost/{}'.format(
+            user, passwd, dbs), pool_pre_ping=True)
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    f_state = session.query(State).order_by(State.id).first()
+    f_state = session.query(State).first()
 
     if f_state:
-        print(f"{f_state.id}: {f_state.name}")
+        print("{}: {}".format(f_state.id, f_state.name))
     else:
-        print("Nothing")
+        print("Not found")
     session.close()
