@@ -10,18 +10,23 @@ from sqlalchemy.orm import sessionmaker
 if __name__ == "__main__":
     """_summary_
     """
-    engine = create_engine('mysql+mysqldb://{}:{}@\
-        localhost:3306/{}'.format(sys.argv[1], sys.argv[2],
-                                  sys.argv[3]))
+    user = sys.argv[1]
+    passwd = sys.argv[2]
+    dbs = sys.argv[3]
+
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost/{}'
+        .format(user, passwd, dbs),
+        pool_pre_ping=True)
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    f_state = session.query(State).filter(State.name.
-                                          like('%%')).order_by(State.id).all()
+    f_state = session.query(State).filter(
+        State.name.like('%a%')).order_by(State.id).all()
     if f_state:
         for state in f_state:
-            print(f"{f_state.id}: {f_state.name}")
+            print("{}: {}".format(state.id, state.name))
     else:
         print("Nothing")
     session.close()
