@@ -1,6 +1,16 @@
 #!/usr/bin/python3
+"""_summary_
+"""
+
 
 def find_peak(list_of_integers):
+    """sumary_line
+
+    Keyword arguments:
+    argument -- description
+    Return: return_description
+    """
+
     if not list_of_integers:
         return None
 
