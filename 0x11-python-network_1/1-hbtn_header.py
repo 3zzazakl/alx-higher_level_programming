@@ -9,6 +9,6 @@ import sys
 url = sys.argv[1]
 
 req = urq.Request(url)
-with urq.urlopen(url) as response:
+with urq.urlopen(req) as response:
     id = response.getheader('X-Request-Id')
     print(id)
