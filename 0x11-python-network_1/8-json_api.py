@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-
+"""Summary
+"""
 
 import requests
 import sys
 
 if __name__ == '__main__':
+    """main
+    """
     if len(sys.argv) < 2:
         q = ""
     else:
