@@ -16,9 +16,10 @@ if __name__ == '__main__':
     response = requests.get(url)
 
     if response.status_code == 200:
-        commits = response.json()
-        for commit in commits[:10]:
-            print(commit.get('sha'), commit.get('commit').
-                  get('author').get('name'))
+        commits = response.json()[:10]
+        for commit in commits:
+            sha = commit.get('sha')
+            author = commit.get('commit').get('author').get('name')
+            print(f"{sha}: {author}")
     else:
         print("None")
