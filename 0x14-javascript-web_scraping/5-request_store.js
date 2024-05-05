@@ -20,8 +20,6 @@ request(url, function (error, response, body) {
     fs.writeFile(filePath, body, function (err) {
       if (err) {
         console.error(err);
-      } else {
-        console.log('The file was saved!');
       }
     });
   }
